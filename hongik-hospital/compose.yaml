@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  db:
+    container_name: mysql-container
+    image: mysql:latest
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: mysqldb
+      MYSQL_ROOT_HOST: root
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3306:3306"
+    volumes:
+      - data_mysqldb:/var/lib/mysqldb
+    networks:
+      - app-tier
+    tty: true
+
+  api-server:
+    container_name: api-server
+    build:
+      context: ./
+    command: gradle bootRun
+    ports:
+      - "8080:8080"
+    networks:
+      - app-tier
+    depends_on:
+      - db
+    restart: on-failure
+    tty: true
+
+networks:
+  app-tier:
+    driver: bridge
+
+volumes:
+  data_mysqldb: null
