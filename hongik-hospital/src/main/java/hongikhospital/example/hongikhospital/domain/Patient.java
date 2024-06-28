@@ -1,6 +1,6 @@
-package domain;
+package hongikhospital.example.hongikhospital.domain;
 
-import enumurate.Gender;
+import hongikhospital.example.hongikhospital.enumurate.Gender;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "patient")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

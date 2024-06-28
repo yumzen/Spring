@@ -1,4 +1,4 @@
-package domain;
+package hongikhospital.example.hongikhospital.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name="doctor")
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,6 @@ public class Doctor {
     private Long career;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(table = "department_id")
+    @JoinColumn(name = "department_id")
     private Department department;
 }

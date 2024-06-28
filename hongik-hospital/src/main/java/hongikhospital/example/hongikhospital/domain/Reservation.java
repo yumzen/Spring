@@ -1,7 +1,6 @@
-package domain;
+package hongikhospital.example.hongikhospital.domain;
 
-import enumurate.Gender;
-import enumurate.Status;
+import hongikhospital.example.hongikhospital.enumurate.Status;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

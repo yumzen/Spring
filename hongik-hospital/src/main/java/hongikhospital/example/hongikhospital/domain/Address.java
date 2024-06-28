@@ -1,4 +1,4 @@
-package domain;
+package hongikhospital.example.hongikhospital.domain;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
